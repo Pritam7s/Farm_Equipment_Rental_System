@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login / Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'login/stylesheet.css'%}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<p>
+		<button class="btn"><a class="dec" href="/"><i class="fa fa-home"></i>Home</a></button>
+	</p>
+	<h2>Sign In / Sign Up</h2>
+
+	{% for x in messages %}
+	{% if 'registered' in x.tags %}
+	<h3 style="color: blue; text-align: center;">{{x}} </h3>
+	{% endif %}
+	{% endfor %}
+
+	{% for z in messages %}
+	{% if 'exist' in z.tags %}
+	<h3 style="color: orange; text-align: center;">{{z}} </h3>
+	{% endif %}
+	{% endfor %}
+
+	{% for i in messages %}
+	{% if 'invalid' in i.tags %}
+	<h3 style="color: red; text-align: center;">{{i}} </h3>
+	{% endif %}
+	{% endfor %}
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		
+		<!-- Signup form Start -->
+		<form action="/signup_form" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fa fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="User Name" is="username" name="username" required />
+			<input type="email" placeholder="Email" id="email" name="email" required />
+			<input type="password" placeholder="Password" id="pwd" name="password" required />
+			<label>Upload Your Profile Picture</label>
+			<input type="file" name="picture" required />
+			<button id="bttn-submit" type="submit">Sign Up</button>
+		</form>
+		<!-- Signup form End -->
+	</div>
+
+
+	<div class="form-container sign-in-container">
+		
+		<!-- Signin form Start -->
+		<form action="/signin_form" method="POST">
+			{% csrf_token %}
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fa fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+			</div>
+			<span>or use your email</span>
+			<input type="email" placeholder="Email" id="email_id" name="email" required />
+			<input type="password" placeholder="Password" id="password" name="password" required />
+			<a href="#">Forgot your password?</a>
+			<button id="log-submit" type="submit"> <a class="dec">Sign In</a></button>
+		</form>
+		<!-- Signin form End -->
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Already a Member!</h1>
+				<p>Login by using any if the methods.</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>New Here?</h1>
+				<p>Create a new account and start journey with us by registering below.</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'login/javascript.js'%}"></script>
+
+<!-- <script type="text/javascript" src="{% static 'login/jquery-3.2.1.min.js' %}"></script>
+
+<script>
+
+	$("#log_submit").click(function () {
+	 $("error").hide();
+	 var hasError = false;	
+	 var email_id = $("#email_id").val();	
+	 var password= $("#password").val()	
+	 if (email_id =="")
+	 {
+		$("#email_id").after('<span class="error" style="color_red">Please Enter Your Email</span>');	
+		hasError = true;
+		}
+	 if (password=="")
+	 {
+		$("#password").after('<span class="error" style="color:red;">Please Enter Your Password</span>');
+		hasError = true;
+	}
+});
+</script> -->
+</body>
+</html>

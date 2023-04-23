@@ -1,0 +1,510 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Payment Table</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'dashboard/css/font-face.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css'%}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.css'%}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'dashboard/vendor/animsition/animsition.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/wow/animate.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/css-hamburgers/hamburgers.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/slick/slick.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/select2/select2.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css'%}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'dashboard/css/theme.css'%}" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="/">
+                            <img src="{% static 'dashboard/images/icon/logo.png'%}" alt="Logo" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                        <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="/dashboard/{{user_data.id}}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/equipment_details/{{user_data.id}}">
+                                <i class="fas fa-wrench"></i>Equipments</a>
+                        </li>
+                        <li>
+                            <a href="/farmer_details/{{user_data.id}}">
+                                <i class="fas fa-user-circle"></i>Farmer Details</a>
+                        </li>
+                        <li>
+                            <a href="/vendor_details/{{user_data.id}}">
+                                <i class="fas fa-address-card"></i>Vendor Details</a>
+                        </li>
+                        
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Category & List</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="/vehicle_details/{{user_data.id}}">Vehicle</a>
+                                </li>
+                                <li>
+                                    <a href="/fertilizer_details/{{user_data.id}}">Fertilizer</a>
+                                </li>
+                                <li>
+                                    <a href="/pesticide_details/{{user_data.id}}">Pesticide</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/land_types/{{user_data.id}}">
+                                <i class="fas fa-leaf"></i>Land Types</a>
+                        </li>
+
+                        <li>
+                            <a href="/rent_charges/{{user_data.id}}">
+                                <i class="fas fa-chart-bar"></i>Rent Charges</a>
+                        </li>
+
+                        <li>
+                            <a href="/rent_duration/{{user_data.id}}">
+                                <i class="fas fa-clock"></i>Rent Duration</a>
+                        </li>
+
+                        <li>
+                            <a href="/booking_details/{{user_data.id}}">
+                                <i class="fas fa-table"></i>Booking</a>
+                        </li>
+
+                        <li>
+                            <a href="/payment_details/{{user_data.id}}">
+                                <i class="fas fa-dollar"></i>Payments</a>
+                        </li>
+
+                        <li>
+                            <a href="/cart_details/{{user_data.id}}">
+                                <i class="fas fa-cart-arrow-down"></i>My Cart</a>
+                        </li>
+
+                        <li>
+                            <a href="/drive_details/{{user_data.id}}">
+                                <i class="fas fa-cloud"></i>Drive Details</a>
+                        </li>
+
+                        <li>
+                            <a href="/report_details/{{user_data.id}}">
+                                <i class="fas fa-bug"></i>Reports</a>
+                        </li>
+
+                        <li>
+                            <a href="/feedback/{{user_data.id}}">
+                                <i class="fas fa-thumbs-up"></i>Feedback</a>
+                        </li>
+                                                
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'dashboard/images/icon/logo.png'%}" alt="Logo" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li>
+                            <a class="js-arrow" href="/dashboard/{{user_data.id}}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/equipment_details/{{user_data.id}}">
+                                <i class="fas fa-wrench"></i>Equipments</a>
+                        </li>
+                        <li>
+                            <a href="/farmer_details/{{user_data.id}}">
+                                <i class="fas fa-user-circle"></i>Farmer Details</a>
+                        </li>
+                        <li>
+                            <a href="/vendor_details/{{user_data.id}}">
+                                <i class="fas fa-address-card"></i>Vendor Details</a>
+                        </li>
+                        
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Category & List</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="/vehicle_details/{{user_data.id}}">Vehicle</a>
+                                </li>
+                                <li>
+                                    <a href="/fertilizer_details/{{user_data.id}}">Fertilizer</a>
+                                </li>
+                                <li>
+                                    <a href="/pesticide_details/{{user_data.id}}">Pesticide</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/land_types/{{user_data.id}}">
+                                <i class="fas fa-leaf"></i>Land Types</a>
+                        </li>
+
+                        <li>
+                            <a href="/rent_charges/{{user_data.id}}">
+                                <i class="fas fa-chart-bar"></i>Rent Charges</a>
+                        </li>
+
+                        <li>
+                            <a href="/rent_duration/{{user_data.id}}">
+                                <i class="fas fa-clock"></i>Rent Duration</a>
+                        </li>
+
+                        <li>
+                            <a href="/booking_details/{{user_data.id}}">
+                                <i class="fas fa-table"></i>Booking</a>
+                        </li>
+
+                        <li class="active has-sub">
+                            <a href="/payment_details/{{user_data.id}}">
+                                <i class="fas fa-dollar"></i>Payments</a>
+                        </li>
+
+                        <li>
+                            <a href="/cart_details/{{user_data.id}}">
+                                <i class="fas fa-cart-arrow-down"></i>My Cart</a>
+                        </li>
+
+                        <li>
+                            <a href="/drive_details/{{user_data.id}}">
+                                <i class="fas fa-cloud"></i>Drive Details</a>
+                        </li>
+
+                        <li>
+                            <a href="/report_details/{{user_data.id}}">
+                                <i class="fas fa-bug"></i>Reports</a>
+                        </li>
+
+                        <li>
+                            <a href="/feedback/{{user_data.id}}">
+                                <i class="fas fa-thumbs-up"></i>Feedback</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button">
+                                <!-- <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="mess-dropdown js-dropdown">
+                                            <div class="mess__title">
+                                                <p>You have new message</p>
+                                            </div>
+                                            <div class="mess__item">
+                                                <div class="content">
+                                                    <h6>Pritam</h6>
+                                                    <p>You are now connected on message</p>
+                                                    <span class="time">Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="mess__footer">
+                                                <a href="#">View all messages</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                              
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>You have 3 Notifications</p>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c1 img-cir img-40">
+                                                    <i class="zmdi zmdi-email-open"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a email notification</p>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c2 img-cir img-40">
+                                                    <i class="zmdi zmdi-account-box"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Your account need security</p>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c3 img-cir img-40">
+                                                    <i class="zmdi zmdi-file-text"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a new file</p>
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            {% if user_data.picture %}
+                                            <img src="{{user_data.picture.url}}" alt="{{user_data.username}}" />
+                                            {% else %}
+                                            <img src="{% static 'dashboard/images/icon/deadpool.png'%}" alt="deadpool" />
+                                            {% endif %}
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">{{user_data.username}} {{user_data.id}}</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        {% if user_data.picture %}
+                                                        <img src="{{user_data.picture.url}}" alt="{{user_data.username}}" />
+                                                        {% else %}
+                                                        <img src="{% static 'dashboard/images/icon/deadpool.png'%}" alt="deadpool" />
+                                                        {% endif %}
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">{{user_data.username}}</a>
+                                                    </h5>
+                                                    <span class="email">{{user_data.email}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="/login">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+
+
+
+
+<!-- After this main content is for all the table data for all dashboard topics -->
+
+
+
+
+
+
+
+
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">Payment Details</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <!-- <button class="au-btn-filter">
+                                        <i class="zmdi zmdi-filter-list"></i>filters</button> -->
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i><a style="color: aliceblue;" href="/add_payment/{{user_data.id}}">add payment</a></button>
+                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small btn">
+                                                <input type="button" id="btnExport" value="Export" style="color: blue;" onclick="Export()"/></button>
+                                             
+                                    </div>
+                                </div>
+                                
+                                <!-- END top portion before the table -->
+                            </div>
+                        </div>
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                {% for x in messages %}
+                                {% if 'payment_success' in x.tags %}
+                                <h3 style="color: green; text-align: center;">{{x}}</h3>
+                                {% endif %}
+                                {% endfor %}
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3" id="ptable">
+                                        <thead>
+                                        <tr>
+                                            <th>SL No</th>
+                                            <th>Farmer Name</th>
+                                            <th>Crop Name</th>
+                                            <th>1 plant cost</th>
+                                            <th>Crop Start date</th>
+                                            <th> Annual Income</th>
+                                            <th>Update</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {% for i in view_payment_data %}
+                                        <tr>
+                                            <td>{{i.id}}</td>
+                                            <td>{{i.name}}</td>
+                                            <td>{{i.crop}}</td>
+                                            <td>{{i.cost}}</td>
+                                            <td>{{i.date}}</td>
+                                            <td>{{i.income}}</td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <a href="/edit_payment/{{user_data.id}}/{{i.id}}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button></a>
+                                                    <a href="/delete_payment_data/{{user_data.id}}/{{i.id}}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button></a>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'dashboard/vendor/jquery-3.2.1.min.js'%}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/popper.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.js'%}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'dashboard/vendor/slick/slick.min.js'%}">
+    </script>
+    <script src="{% static 'dashboard/vendor/wow/wow.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/animsition/animsition.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js'%}">
+    </script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.counterup.min.js'%}">
+    </script>
+    <script src="{% static 'dashboard/vendor/circle-progress/circle-progress.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/chartjs/Chart.bundle.min.js'%}"></script>
+    <script src="{% static 'dashboard/vendor/select2/select2.min.js'%}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{% static 'dashboard/js/main.js'%}"></script>
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        function Export() {
+            html2canvas(document.getElementById('ptable'), {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Payment Table.pdf");
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
+<!-- end document-->
